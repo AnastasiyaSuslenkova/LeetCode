@@ -20,7 +20,7 @@ def roman_to_int(s: str) -> int:
             integer += d[el]
     return integer
 
-if __name__ == '__main__':
-    test_roman = {'III': 3, 'LVIII': 58, 'MCMXCIV': 1994}
-    for rom in test_roman.keys():
-        print(f'input: {rom}, output: {roman_to_int(rom)}, expected: {test_roman[rom]}')
+
+test_roman = {'III': 3, 'LVIII': 58, 'MCMXCIV': 1994}
+for rom in test_roman.keys():
+    print(f'input: {rom}, output: {roman_to_int(rom)}, expected: {test_roman[rom]}')
