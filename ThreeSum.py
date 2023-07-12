@@ -28,20 +28,19 @@
 #     3 <= nums.length <= 3000
 #     -10^5 <= nums[i] <= 10^5
 
+from collections import Counter, defaultdict
+
 
 def three_sum(nums: list[int]) -> list[list[int]]:
     triplets = []
-    min_nums = min(nums)
-    max_nums = max(nums)
-    dict_nums = dict.fromkeys(range(min(min_nums, -max_nums), max(max_nums + 1, -min_nums)), 0)
+    dict_nums = defaultdict(int, Counter(nums))
     pos_set = set()
     neg_set = set()
-    for n in nums:
+    for n in dict_nums.keys():
         if n > 0:
             pos_set.add(n)
         elif n < 0:
             neg_set.add(n)
-        dict_nums[n] += 1
     if dict_nums[0] > 2:
         triplets.append([0, 0, 0])
     for p in pos_set:
