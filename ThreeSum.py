@@ -32,29 +32,26 @@ from collections import Counter, defaultdict
 
 
 def three_sum(nums: list[int]) -> list[list[int]]:
-    triplets = set()
+    triplets = []
     dict_nums = defaultdict(int, Counter(nums))
-    nums_set = dict_nums.copy().keys()
-    for p in nums_set:
-        if p == 0:
-            if dict_nums[0] > 2:
-                triplets.add(frozenset([0]))
-        else:
-            for n in nums_set:
-                if n != p:
-                    k = -(n + p)
-                    if (k == p) or (k == n): 
-                        if dict_nums[k] > 1:
-                            triplets.add(frozenset([p, n, k]))
-                    elif dict_nums[k] > 0:
-                        triplets.add(frozenset([p, n, k]))
-    triplets_output = []
-    for triplet in triplets:
-        tr_out = list(triplet)
-        while len(tr_out) < 3:
-            tr_out.append(-sum(tr_out))
-        triplets_output.append(tr_out)
-    return triplets_output
+    pos_set = set()
+    neg_set = set()
+    for n in dict_nums.keys():
+        if n > 0:
+            pos_set.add(n)
+        elif n < 0:
+            neg_set.add(n)
+    if dict_nums[0] > 2:
+        triplets.append([0, 0, 0])
+    for p in pos_set:
+        for n in neg_set:
+            k = -(n + p)
+            if (k == p or k == n) and (dict_nums[k] > 1):
+                triplets.append([p, n, k])
+            elif dict_nums[k] > 0:
+                if (k < p) and (k > n):
+                    triplets.append([p, n, k])
+    return triplets
 
 
 if __name__ == '__main__':
