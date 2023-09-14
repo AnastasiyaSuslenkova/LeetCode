@@ -46,7 +46,20 @@ def convert(s: str, num_rows: int) -> str:
         diff_pos = 2 * num_rows - 2
         ost = i % diff_pos
         if ost < num_rows:
-            words[ost] = words[ost] + s_i
+            words[ost] = words[ost] + s_i # строка неизменяемый объект, поэтому
+                                          # эта операция создает новую строку формально,
+                                          # а это по времени работает за длину строки.
+                                          # если пользоваться +=, будет быстрее, потому что 
+                                          # питон выделяет память как раз на эту операцию, 
+                                          # так что, если мы не сильно удлиняем строчку, то 
+                                          # эта операция работает за константу
+                                          #
+                                          # я бы делал так:
+                                          #
+                                          # words = [[] for i in range(num_rows)]
+                                          # words[ost].apped('s_i')
+                                          #
+                                          # на всякий случай
         else:
             pos = diff_pos - ost
             words[pos] = words[pos] + s_i

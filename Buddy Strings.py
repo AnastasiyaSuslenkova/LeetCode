@@ -30,15 +30,20 @@ def buddy_strings(s: str, goal: str) -> bool:
         return False
     diff_i = []
     i = 0
-    while (i < len(s)) and (len(diff_i) < 3):
-        if s[i] != goal[i]:
-            diff_i.append(i)
-        i += 1
+    while (i < len(s)) and (len(diff_i) < 3): # можно попробовать так: (не уверен, что это будет лучше)
+        if s[i] != goal[i]:                   # for i, (letter1, letter2)  in enumerate(zip(s, goal)):
+            diff_i.append(i)                  #     if letter1 != letter2:
+        i += 1                                #         diff_i.append(i)
+                                              #     if len(diff_i) > 2:
+                                              #         break
+                                              # теперь не обращаемся к буквам по индексам!
+
     if len(diff_i) == 0:
-        if len(s) > len(set(s)):
-            return True
-        else:
-            return False
+        if len(s) > len(set(s)):              # создание множества уникальных букв в s
+            return True                       # можно в верхний цикл поместить
+        else:                                 # 
+            return False                      # чтоб создать set(s), нам же еще раз придется пробежаться 
+                                              # по s, не очень хорошо, но не знаю как сделать лучше
     if len(diff_i) == 2:
         if (s[diff_i[0]] == goal[diff_i[1]]) and (s[diff_i[1]] == goal[diff_i[0]]):
             return True
@@ -49,5 +54,8 @@ tests = [{'s': 'ab', 'goal': 'ba', 'expected': True},
          {'s': 'ab', 'goal': 'ab', 'expected': False},
          {'s': 'aa', 'goal': 'aa', 'expected': True},
          {'s': 'aaaaaaaaaaaaaaaaaaaaaa', 'goal': 'aaaaaaaaaaaaaaaaaaaaaa', 'expected': True}]
+
+         # 's': 'a' 'goal': 'a'
+         
 for test in tests:
     print(test, buddy_strings(test['s'], test['goal']))
