@@ -14,7 +14,7 @@
 # Output: 0
 # Explanation: In this case, no transactions are done and the max profit = 0.
 
-def max_profit(prices: list[int]) -> int:
+def max_profit(prices: list[int]) -> int: # test
     min_prev = prices[0]
     profit_max = 0
     for price in prices:
