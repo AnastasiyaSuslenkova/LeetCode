@@ -44,7 +44,13 @@ def get_averages(nums: list[int], k: int) -> list[int]:
     nums = np.array(nums)
     avg = np.full(l, -1)
     for i in range(k, l - k):
-        avg[i] = nums[(i - k):(i + k + 1)].mean()
+        avg[i] = nums[(i - k):(i + k + 1)].mean() # каждый раз пересчитыавем среднее
+                                                  # идея как уменьшить затраты по времени:
+                                                  # идти окном вида [i-k, i+k]
+                                                  # и когда делаем один шаг, мы не считаем явно еще раз среднее,
+                                                  # а делаем следующее:
+                                                  # (avg*(2*k+1) - nums[i-k] + nums[i+k+1]) / 2k+1
+                                                  # за константу пересчет среднего
     return avg
 
 

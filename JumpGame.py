@@ -22,7 +22,11 @@ import numpy as np
 
 def can_jump(nums: list[int]) -> bool:
     nums_numpy = np.array(nums[:-1])
-    for i in np.arange(len(nums_numpy))[nums_numpy == 0]:
+    for i in np.arange(len(nums_numpy))[nums_numpy == 0]: # это разбиение на нули и не нули можно
+                                                          # сделать встроенной штукой
+                                                          # itertools.groupby(nums, key=lambda x: x!= 0)
+                                                          # чтоб не использовать numpy
+                                                          # хотя может это и не нужно
         j = i - 1
         while (j >= 0) and (nums_numpy[j] < i - j + 1):
             j -= 1

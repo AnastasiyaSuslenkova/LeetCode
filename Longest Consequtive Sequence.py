@@ -19,11 +19,16 @@ from collections import defaultdict
 def longest_consecutive(nums: list[int]) -> int:
     if not nums:
         return 0
-    dict_key_max_value_min = defaultdict(bool)
-    dict_key_min_value_max = defaultdict(bool)
+    dict_key_max_value_min = defaultdict(bool) # названия может другие придумать для переменных
+    dict_key_min_value_max = defaultdict(bool) # так просто не очень понятно что они значат
     ns = set(nums)
     for n in ns:
-        if type(dict_key_min_value_max[n + 1]) == int:
+        if type(dict_key_min_value_max[n + 1]) == int: # если сравнивать тип с int, то лучше делать 
+                                                       # isinstance(dict_key_min_value_max[n + 1], int)
+                                                       # но если бы у нас была такая ситуация
+                                                       # x = False
+                                                       # isinstance(x, int) - вернул бы True, потому что 
+                                                       # issubclass(bool, int) - True
             if dict_key_max_value_min[n - 1]:
                 dict_key_max_value_min[dict_key_min_value_max[n + 1]] = dict_key_max_value_min[n - 1]
                 dict_key_min_value_max[dict_key_max_value_min[n - 1]] = dict_key_min_value_max[n + 1]
@@ -42,12 +47,16 @@ def longest_consecutive(nums: list[int]) -> int:
         else:
             dict_key_min_value_max[n] = n
             dict_key_max_value_min[n] = n
+
     res = 0
     for k, v in dict_key_min_value_max.items():
         if (type(v) == int) and ((v - k) > res):
             res = v - k
     return res + 1
 
+    # как я понял решение заключается в том, что мы на кластеры пытаемся распределить подряд идущие числа
+    # думаю, что идейно лучше ниче не придумать, реализация вот такую нашел, где кода поменьше
+    # https://leetcode.com/problems/longest-consecutive-sequence/solutions/3888654/python3-c-java-intervals-greedy-and-dp-without-any-sort/
 
 if __name__ == '__main__':
     tests = [{'inp': [100, 4, 200, 1, 3, 2], 'exp': 4},
