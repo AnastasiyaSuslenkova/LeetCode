@@ -28,11 +28,17 @@
 
 
 def can_place_flowers(flowerbed: list[int], n: int) -> bool:
+    # возможно стоит сделать так, чтоб не менять входной лист
+    # flowerbed = list(flowerbed), но тут еще len(flowerbed) операций добавится
+    # но, если мы подразумеваем в этой функции, что он меняется, тогда все ок
+    # если бы это была реальная задачка, наверное столило бы в документации писать об этом?..
     if n == 0:
         return True
     n_places = 0
     for i, place in enumerate(flowerbed):
-        if place == 1:
+        if place == 1: # можно просто if place:
+                       # думаю, что вместо if place == 1, сделать if not place:
+                       # чтоб избавиться от continue
             continue
         if (i == 0) or (flowerbed[i - 1] == 0):
             if (i == len(flowerbed) - 1) or (flowerbed[i + 1] == 0):
@@ -49,5 +55,8 @@ if __name__ == '__main__':
              {'flowerbed': [1, 0, 0, 0, 0, 1], 'n': 2, 'expected': False},
              {'flowerbed': [1, 0, 0, 0, 1, 0, 0], 'n': 2, 'expected': True},
              {'flowerbed': [1, 0, 0, 0, 0, 0, 1], 'n': 2, 'expected': True}]
+
+             # 'flowerbed' : [0, ..., 1] 
+             # 'flowerbed' : [0, ..., 0] - краевые случаи 
     for test in tests:
         print(test, can_place_flowers(test['flowerbed'], test['n']))

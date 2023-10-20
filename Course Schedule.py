@@ -31,23 +31,23 @@ import numpy as np
 
 
 def can_finish(numCourses: int, prerequisites: list[list[int]]) -> bool:
-    if not prerequisites:
+    if not prerequisites:               
         return True
     viewed = []
     prers = np.array(prerequisites)
     firsts = prers[:, 0]
-    for prer in prerequisites:
-        if not prer in viewed:
-            p = prer
-            cont = True
-            sequence = [p[0]]
-            while cont:
-                viewed.append(p)
-                if p[1] in sequence:
-                    return False
+    for prer in prerequisites:       # слабо понимаю что происходит
+        if not prer in viewed:       # пытаемся искать циклы что ли
+            p = prer                 # еще numCourses нет в теле функции?
+            cont = True              #
+            sequence = [p[0]]        # хочу сказать, что эта задачка на топологическую сортировку
+            while cont:              # т.е. можно формально граф построить 
+                viewed.append(p)     # повыкидвать циклы и сравниь оставшееся кол-во вершин с numCourses
+                if p[1] in sequence: # это решение, просто я не понимаю пока что, если объяснишь,
+                    return False     # то можно детальнее подумать!
                 if p[1] in firsts:
                     sequence.append(p[1])
-                    p = prerequisites[np.where(firsts == p[1])[0][0]]
+                    p = prerequisites[np.where(firsts == p[1])[0][0]] # эта конструкция ваще пугает
                 else:
                     cont = False
     return True
@@ -56,5 +56,6 @@ def can_finish(numCourses: int, prerequisites: list[list[int]]) -> bool:
 tests = [{'numCourses': 2, 'prerequisites': [[1, 0]], 'expected': True},
          {'numCourses': 2, 'prerequisites': [[1, 0], [0, 1]], 'expected': False},
          {'numCourses': 4, 'prerequisites': [[2, 0], [1, 0], [3, 1], [3, 2], [1, 3]], 'expected': False}]
+         #                 'prerequisites': [[1, 0], [2, 1], [0, 2]] - цикл длины 3
 for test in tests:
     print(test, can_finish(test['numCourses'], test['prerequisites']))

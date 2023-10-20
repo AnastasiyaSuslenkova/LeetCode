@@ -18,7 +18,7 @@
 #     strs[i] consists of only lowercase English letters.
 
 
-def longest_common_prefix(strs: list[str]) -> str:
+def longest_common_prefix(strs: list[str]) -> str: # думаю что, все супер
     for i, s in enumerate(strs[0]):
         for string in strs[1:]:
             try:

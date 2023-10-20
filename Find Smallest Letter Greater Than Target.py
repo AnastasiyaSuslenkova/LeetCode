@@ -32,8 +32,11 @@ import numpy as np
 def next_greatest_letter(letters: list[str], target: str) -> str:
     letters = np.array(letters)
     try:
-        return letters[letters > target][0]
-    except IndexError:
+        return letters[letters > target][0] # много памяти лишней тратим
+                                            # а вдруг letters[letters > target] будет очень много весить
+                                            # тут явно бинпоиск надо применить
+                                            # потому что letters - отсортирован!
+    except IndexError:                      
         return letters[0]
 
 

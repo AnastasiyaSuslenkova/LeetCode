@@ -21,13 +21,18 @@
 
 
 def climb_stairs(n: int) -> int:
-    if n < 3:
-        return n
+    if n < 3:       # это же наша база индукции,  
+        return n    # может ее стоит уменьшить, т.е.
+                    # написать if n == 1:
+                    # вдруг задачка немного поменяется -> база индукции изменится
+                    # не знаю насколько это замечание валидно
     prev_ways = 1
     ways = 2
     for i in range(2, n):
         ways, prev_ways = ways + prev_ways, ways
     return ways
+
+
 
 
 if __name__ == '__main__':

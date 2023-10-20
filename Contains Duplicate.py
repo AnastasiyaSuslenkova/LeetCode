@@ -14,10 +14,12 @@
 # Output: true
 
 
-def contains_duplicate(nums: list[int]) -> bool:
-    if len(nums) > len(set(nums)):
-        return True
-    return False
+def contains_duplicate(nums: list[int]) -> bool: # асимптотически супер
+    if len(nums) > len(set(nums)):               # выглядит красиво
+        return True                              # но, если прям боремся за оптимизацию,
+    return False                                 # то можно как только первый дупликат находим
+                                                 # возвращать True
+                                                 # я бы не стал ниче исправлять :^)
 
 
 # Press the green button in the gutter to run the script.

@@ -19,7 +19,7 @@
 #     2 <= n <= 10^5
 #     0 <= height[i] <= 10^4
 
-def max_area(height: list[int]) -> int:
+def max_area(height: list[int]) -> int: # думаю что все супер
     l = 0
     r = len(height) - 1
     vol_max = 0
