@@ -1,6 +1,8 @@
 # Given a signed 32-bit integer x, return x with its digits reversed.
-# If reversing x causes the value to go outside the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
-# Assume the environment does not allow you to store 64-bit integers (signed or unsigned).
+# If reversing x causes the value to go outside
+# the signed 32-bit integer range [-2^31, 2^31 - 1], then return 0.
+# Assume the environment does not allow you to store 64-bit integers
+# (signed or unsigned).
 #
 # Example 1:
 # Input: x = 123
@@ -35,7 +37,7 @@ def reverse(x: int) -> int:
     max_d = 10 ** len_x
     min_d = 1
     x = 0
-    for i in range(len_x + 1):
+    for _ in range(len_x + 1):
         x = x + ((y // max_d) % 10) * min_d
         max_d = max_d / 10
         min_d = min_d * 10
@@ -48,6 +50,5 @@ def reverse(x: int) -> int:
 
 if __name__ == '__main__':
     tests = {123: 321, -123: -321, 120: 21, 1534236469: 0}
-    for x, answ in tests.items():
-        print(f'x: {x}, expected: {answ}, output: {reverse(x)}')
-
+    for inp, answer in tests.items():
+        print(f'x: {inp}, expected: {answer}, output: {reverse(inp)}')
