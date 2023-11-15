@@ -8,7 +8,8 @@
 # Example 2:
 # Input: x = -121
 # Output: false
-# Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
+# Explanation: From left to right, it reads -121.
+# From right to left, it becomes 121-. Therefore it is not a palindrome.
 #
 # Example 3:
 # Input: x = 10
@@ -36,7 +37,7 @@ def is_palindrome(x: int) -> bool:
     len_x = int(math.log10(x))
     max_d = 10 ** len_x
     min_d = 1
-    for i in range((len_x + 1) // 2):
+    for _ in range((len_x + 1) // 2):
         if ((x // min_d) % 10) != ((x // max_d) % 10):
             return False
         min_d = min_d * 10
@@ -45,8 +46,7 @@ def is_palindrome(x: int) -> bool:
 
 
 if __name__ == '__main__':
-    tests = {121 : True, -121: False, 10: False, 1001: True, 1000021: False, 100: False, 0: True, 8: True}
-    for x, answer in tests.items():
-        print(f'input: {x}, expected: {answer}, output: {is_palindrome(x)}')
-
-
+    tests = {121: True, -121: False, 10: False, 1001: True,
+             1000021: False, 100: False, 0: True, 8: True}
+    for inp, answer in tests.items():
+        print(f'input: {inp}, expected: {answer}, output: {is_palindrome(inp)}')
