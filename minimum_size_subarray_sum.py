@@ -1,5 +1,6 @@
-# Given an array of positive integers nums and a positive integer target, return the minimal length of a
-# subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead.
+# Given an array of positive integers nums and a positive integer target,
+# return the minimal length of a subarray whose sum is greater than or equal to target.
+# If there is no such subarray, return 0 instead.
 # A subarray is a contiguous non-empty sequence of elements within an array.
 #
 #
@@ -26,7 +27,8 @@
 #    1 <= nums.length <= 10^5
 #   1 <= nums[i] <= 10^4
 
-# Важно, что тут имеется в виду, что элементы подмассива должны идти подряд в массиве (иначе бы решение было проще)
+# Важно, что тут имеется в виду, что элементы подмассива
+# должны идти подряд в массиве (иначе бы решение было проще)
 
 
 def min_subarray_len(target: int, nums: list[int]) -> int:
@@ -52,9 +54,12 @@ def min_subarray_len(target: int, nums: list[int]) -> int:
 
 
 if __name__ == '__main__':
-    tests = [{'target': 7, 'nums': [2, 3, 1, 2, 4, 3], 'expected': 2},
-             {'target': 4, 'nums': [1, 4, 4], 'expected': 1},
-             {'target': 11, 'nums': [1, 1, 1, 1, 1, 1, 1, 1], 'expected': 0},
-             {'target': 213, 'nums': [12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12], 'expected': 8}]
+    tests = [
+        {'target': 7, 'nums': [2, 3, 1, 2, 4, 3], 'expected': 2},
+        {'target': 4, 'nums': [1, 4, 4], 'expected': 1},
+        {'target': 11, 'nums': [1, 1, 1, 1, 1, 1, 1, 1], 'expected': 0},
+        {'target': 213, 'nums': [12, 28, 83, 4, 25, 26, 25, 2, 25, 25, 25, 12],
+         'expected': 8}
+    ]
     for test in tests:
         print(test, min_subarray_len(test['target'], test['nums']))
