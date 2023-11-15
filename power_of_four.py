@@ -58,4 +58,3 @@ if __name__ == '__main__':
     ]
     for test in tests:
         print(test, is_power_of_four_without_loops(test['n']))
-
