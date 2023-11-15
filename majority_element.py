@@ -23,4 +23,3 @@ if __name__ == '__main__':
              {'inp': [2, 2, 1, 1, 1, 2, 2], 'expected': 2}]
     for test in tests:
         print(test, majority_element(test['inp']))
-
