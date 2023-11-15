@@ -1,5 +1,6 @@
 # Given an integer num, return the number of steps to reduce it to zero.
-# In one step, if the current number is even, you have to divide it by 2, otherwise, you have to subtract 1 from it.
+# In one step, if the current number is even, you have to divide it by 2,
+# otherwise, you have to subtract 1 from it.
 
 def number_of_steps(num: int) -> int:
     num_steps = 0
@@ -14,5 +15,5 @@ def number_of_steps(num: int) -> int:
 
 if __name__ == '__main__':
     tests = {14: 6, 8: 4, 123: 12}
-    for input, expected in tests.items():
-        print(f'input: {input}, expected: {expected}, output: {number_of_steps(input)}')
+    for inp, expected in tests.items():
+        print(f'input: {inp}, expected: {expected}, output: {number_of_steps(inp)}')
