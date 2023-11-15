@@ -7,17 +7,20 @@
 # Example 1:
 # Input: s = "ab", goal = "ba"
 # Output: true
-# Explanation: You can swap s[0] = 'a' and s[1] = 'b' to get "ba", which is equal to goal.
+# Explanation: You can swap s[0] = 'a' and s[1] = 'b' to get "ba",
+# which is equal to goal.
 #
 # Example 2:
 # Input: s = "ab", goal = "ab"
 # Output: false
-# Explanation: The only letters you can swap are s[0] = 'a' and s[1] = 'b', which results in "ba" != goal.
+# Explanation: The only letters you can swap are s[0] = 'a' and s[1] = 'b',
+# which results in "ba" != goal.
 #
 # Example 3:
 # Input: s = "aa", goal = "aa"
 # Output: true
-# Explanation: You can swap s[0] = 'a' and s[1] = 'a' to get "aa", which is equal to goal.
+# Explanation: You can swap s[0] = 'a' and s[1] = 'a' to get "aa",
+# which is equal to goal.
 #
 #
 # Constraints:
@@ -35,19 +38,19 @@ def buddy_strings(s: str, goal: str) -> bool:
             diff_i.append(i)
         i += 1
     if len(diff_i) == 0:
-        if len(s) > len(set(s)):
-            return True
-        else:
-            return False
+        return len(s) > len(set(s))
     if len(diff_i) == 2:
-        if (s[diff_i[0]] == goal[diff_i[1]]) and (s[diff_i[1]] == goal[diff_i[0]]):
+        if s[diff_i[0]] == goal[diff_i[1]] \
+                and s[diff_i[1]] == goal[diff_i[0]]:
             return True
     return False
 
 
-tests = [{'s': 'ab', 'goal': 'ba', 'expected': True},
-         {'s': 'ab', 'goal': 'ab', 'expected': False},
-         {'s': 'aa', 'goal': 'aa', 'expected': True},
-         {'s': 'aaaaaaaaaaaaaaaaaaaaaa', 'goal': 'aaaaaaaaaaaaaaaaaaaaaa', 'expected': True}]
+tests = [
+    {'s': 'ab', 'goal': 'ba', 'expected': True},
+    {'s': 'ab', 'goal': 'ab', 'expected': False},
+    {'s': 'aa', 'goal': 'aa', 'expected': True},
+    {'s': 'aaaaaaaaaaaaaaaaaaaaaa', 'goal': 'aaaaaaaaaaaaaaaaaaaaaa', 'expected': True}
+]
 for test in tests:
     print(test, buddy_strings(test['s'], test['goal']))
