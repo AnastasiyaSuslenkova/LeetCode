@@ -1,8 +1,12 @@
-# Given an integer array nums and an integer val, remove all occurrences of val in nums in-place.
-# The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
-# Consider the number of elements in nums which are not equal to val be k, to get accepted,
-# you need to do the following things:
-#     Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+# Given an integer array nums and an integer val,
+# remove all occurrences of val in nums in-place.
+# The order of the elements may be changed.
+# Then return the number of elements in nums which are not equal to val.
+# Consider the number of elements in nums which are not equal to val be k,
+# to get accepted, you need to do the following things:
+#     Change the array nums such that the first k elements of nums contain
+#     the elements which are not equal to val.
+#     The remaining elements of nums are not important as well as the size of nums.
 #     Return k.
 #
 #
@@ -36,7 +40,8 @@
 # Example 2:
 # Input: nums = [0,1,2,2,3,0,4,2], val = 2
 # Output: 5, nums = [0,1,4,0,3,_,_,_]
-# Explanation: Your function should return k = 5, with the first five elements of nums containing 0, 0, 1, 3, and 4.
+# Explanation: Your function should return k = 5,
+# with the first five elements of nums containing 0, 0, 1, 3, and 4.
 # Note that the five elements can be returned in any order.
 # It does not matter what you leave beyond the returned k (hence they are underscores).
 #
@@ -47,8 +52,9 @@
 
 
 # решение 1 (с использованием numpy, работает долго, видимо, из-за импорта)
-# и вывод еще некрасивый, потому что в конце массива мусор (по условию задачи он разрешен, но
-# все равно не эстетично), как его убрать без использования цикла - не придумала, а если уж
+# и вывод еще некрасивый, потому что в конце массива мусор
+# (по условию задачи он разрешен, но все равно не эстетично),
+# как его убрать без использования цикла - не придумала, а если уж
 # использовать циклы, то лучше вторым решением воспользоваться
 import numpy as np
 
@@ -76,12 +82,13 @@ def remove_element2(nums: list[int], val: int) -> int:
 
 
 if __name__ == '__main__':
-    input1 = 'nums'
-    input2 = 'val'
-    tests = [{input1: [3, 2, 2, 3], input2: 3, 'expected_arr': [2, 2, '_', '_'], 'expected_n': 2},
-             {input1: [0, 1, 2, 2, 3, 0, 4, 2], input2: 2, 'expected': [0, 1, 4, 0, 3, '_', '_', '_']}]
+    tests = [
+        {'nums': [3, 2, 2, 3], 'val': 3,
+         'expected_arr': [2, 2, '_', '_'], 'expected_n': 2},
+        {'nums': [0, 1, 2, 2, 3, 0, 4, 2], 'val': 2,
+         'expected': [0, 1, 4, 0, 3, '_', '_', '_']}
+    ]
     for test in tests:
         print(test)
-        print(f'n = {remove_element2(test[input1], test[input2])}')
-        print(f'arr = {test[input1]}')
-
+        print(f'n = {remove_element2(test["nums"], test["val"])}')
+        print(f'arr = {test["nums"]}')
