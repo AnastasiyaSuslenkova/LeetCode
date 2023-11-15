@@ -37,5 +37,3 @@ if __name__ == '__main__':
              {'strs': ['ab', 'a'], 'expected': 'a'}]
     for test in tests:
         print(test, longest_common_prefix(test['strs']))
-
-
