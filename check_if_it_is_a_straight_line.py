@@ -1,5 +1,6 @@
 # You are given an array coordinates, coordinates[i] = [x, y],
-# where [x, y] represents the coordinate of a point. Check if these points make a straight line in the XY plane.
+# where [x, y] represents the coordinate of a point.
+# Check if these points make a straight line in the XY plane.
 #
 # Example 1:
 # Input: coordinates = [[1,2],[2,3],[3,4],[4,5],[5,6],[6,7]]
@@ -36,7 +37,11 @@ def check_straight_line(coordinates: list[list[int]]) -> bool:
 
 
 if __name__ == '__main__':
-    tests = [{'coordinates': [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]], 'expected': True},
-             {'coordinates': [[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]], 'expected': False}]
+    tests = [
+        {'coordinates': [[1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]],
+         'expected': True},
+        {'coordinates': [[1, 1], [2, 2], [3, 4], [4, 5], [5, 6], [7, 7]],
+         'expected': False}
+    ]
     for test in tests:
         print(test, check_straight_line(test['coordinates']))
