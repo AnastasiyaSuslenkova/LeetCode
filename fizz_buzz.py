@@ -22,8 +22,11 @@ def fizz_buzz(n: int) -> list[str]:
 
 
 if __name__ == '__main__':
-    tests = {3: ["1", "2", "Fizz"],
-             5: ["1", "2", "Fizz", "4", "Buzz"],
-             15: ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]}
-    for num in tests.keys():
-        print(f'input: {num}, \n output: {fizz_buzz(num)}, \n expected: {tests[num]} \n \n')
+    tests = {
+        3: ["1", "2", "Fizz"],
+        5: ["1", "2", "Fizz", "4", "Buzz"],
+        15: ["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8",
+             "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"]}
+    for inp, expected in tests.items():
+        print(f'input: {inp}, \n output: {fizz_buzz(inp)},'
+              f'\n expected: {expected} \n \n')
