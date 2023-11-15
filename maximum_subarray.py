@@ -1,4 +1,5 @@
-# Given an integer array nums, find the subarray with the largest sum, and return its sum.
+# Given an integer array nums, find the subarray with the largest sum,
+# and return its sum.
 #
 # Example 1:
 # Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
@@ -36,4 +37,3 @@ if __name__ == '__main__':
              {'nums': [5, 4, -1, 7, 8], 'expected': 23}]
     for test in tests:
         print(test, max_sub_array(test['nums']))
-
