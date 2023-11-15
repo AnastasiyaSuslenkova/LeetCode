@@ -1,5 +1,6 @@
-# You are given an integer array nums. You are initially positioned at the array's first index,
-# and each element in the array represents your maximum jump length at that position.
+# You are given an integer array nums. You are initially positioned
+# at the array's first index, and each element in the array
+# represents your maximum jump length at that position.
 # Return true if you can reach the last index, or false otherwise.
 #
 # Example 1:
@@ -37,4 +38,3 @@ if __name__ == '__main__':
              {'nums': [2, 0, 0], 'expected': True}]
     for test in tests:
         print(test, can_jump(test['nums']))
-
