@@ -1,6 +1,7 @@
-# Given two strings s and t, return true if t is an anagram of s, and false otherwise.
-# An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
-# typically using all the original letters exactly once.
+# Given two strings s and t, return true if t is an anagram of s,
+# and false otherwise. An Anagram is a word or phrase formed by rearranging
+# the letters of a different word or phrase, typically using all the original
+# letters exactly once.
 #
 # Example 1:
 # Input: s = "anagram", t = "nagaram"
@@ -24,11 +25,8 @@ def is_anagram(s: str, t: str) -> bool:
     return True
 
 
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
     tests = [{'s': 'anagram', 't': 'nagaram', 'expected': True},
              {'s': 'rat', 't': 'car', 'expected': False}]
     for test in tests:
         print(test, is_anagram(test['s'], test['t']))
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
