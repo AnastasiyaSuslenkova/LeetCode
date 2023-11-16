@@ -1,4 +1,5 @@
-# The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this:
+# The string "PAYPALISHIRING" is written in a zigzag pattern
+# on a given number of rows like this:
 # (you may want to display this pattern in a fixed font for better legibility)
 #
 # P   A   H   N
@@ -7,7 +8,8 @@
 #
 # And then read line by line: "PAHNAPLSIIGYIR"
 #
-# Write the code that will take a string and make this conversion given a number of rows:
+# Write the code that will take a string and make this conversion
+# given a number of rows:
 #
 # string convert(string s, int numRows);
 #
@@ -41,7 +43,7 @@
 def convert(s: str, num_rows: int) -> str:
     if num_rows == 1:
         return s
-    words = [str() for i in range(num_rows)]
+    words = [str()] * num_rows
     for i, s_i in enumerate(s):
         diff_pos = 2 * num_rows - 2
         ost = i % diff_pos
