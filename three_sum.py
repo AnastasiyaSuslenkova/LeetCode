@@ -1,4 +1,5 @@
-# Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k,
+# Given an integer array nums, return all the triplets
+# [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k,
 # and nums[i] + nums[j] + nums[k] == 0.
 # Notice that the solution set must not contain duplicate triplets.
 #
@@ -10,7 +11,8 @@
 # nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
 # nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
 # The distinct triplets are [-1,0,1] and [-1,-1,2].
-# Notice that the order of the output and the order of the triplets does not matter.
+# Notice that the order of the output and the order of the triplets
+# does not matter.
 #
 # Example 2:
 # Input: nums = [0,1,1]
@@ -46,19 +48,20 @@ def three_sum(nums: list[int]) -> list[list[int]]:
     for p in pos_set:
         for n in neg_set:
             k = -(n + p)
-            if (k == p or k == n) and (dict_nums[k] > 1):
+            if k in (p, n) and dict_nums[k] > 1:
                 triplets.append([p, n, k])
             elif dict_nums[k] > 0:
-                if (k < p) and (k > n):
+                if n < k < p:
                     triplets.append([p, n, k])
     return triplets
 
 
 if __name__ == '__main__':
-    tests = [{'nums': [-1, 0, 1, 2, -1, -4], 'expected': [[-1, -1, 2], [-1, 0, 1]]},
-             {'nums': [0, 1, 1], 'expected': []},
-             {'nums': [0, 0, 0], 'expected': [[0, 0, 0]]},
-             {'nums': [3, 0, -2, -1, 1, 2], 'expected': [[-2, -1, 3], [-2, 0, 2], [-1, 0, 1]]}]
+    tests = [
+        {'nums': [-1, 0, 1, 2, -1, -4], 'expected': [[-1, -1, 2], [-1, 0, 1]]},
+        {'nums': [0, 1, 1], 'expected': []},
+        {'nums': [0, 0, 0], 'expected': [[0, 0, 0]]},
+        {'nums': [3, 0, -2, -1, 1, 2], 'expected': [[-2, -1, 3], [-2, 0, 2], [-1, 0, 1]]}
+    ]
     for test in tests:
         print(test, three_sum(test['nums']))
-
