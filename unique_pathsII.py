@@ -6,9 +6,11 @@
 # An obstacle and space are marked as 1 or 0 respectively in grid.
 # A path that the robot takes cannot include any square that is an obstacle.
 #
-# Return the number of possible unique paths that the robot can take to reach the bottom-right corner.
+# Return the number of possible unique paths that the robot can take
+# to reach the bottom-right corner.
 #
-# The testcases are generated so that the answer will be less than or equal to 2 * 10^9.
+# The testcases are generated so that the answer will be
+# less than or equal to 2 * 10^9.
 #
 #
 # Example 1:
@@ -56,11 +58,12 @@ def unique_paths_with_obstacles(obstacle_grid: list[list[int]]) -> int:
 
 
 if __name__ == '__main__':
-    tests = [{'obstacle_grid': [[0, 0, 0], [0, 1, 0], [0, 0, 0]], 'expected': 2},
-             {'obstacle_grid': [[0, 1], [0, 0]], 'expected': 1},
-             {'obstacle_grid': [[0, 1, 0], [0, 1, 0], [0, 0, 0]], 'expected': 1},
-             {'obstacle_grid': [[1, 0, 0], [0, 0, 0], [0, 0, 0]], 'expected': 0},
-             {'obstacle_grid': [[0, 0, 0], [0, 0, 0], [0, 0, 1]], 'expected': 0}]
+    tests = [
+        {'obstacle_grid': [[0, 0, 0], [0, 1, 0], [0, 0, 0]], 'expected': 2},
+        {'obstacle_grid': [[0, 1], [0, 0]], 'expected': 1},
+        {'obstacle_grid': [[0, 1, 0], [0, 1, 0], [0, 0, 0]], 'expected': 1},
+        {'obstacle_grid': [[1, 0, 0], [0, 0, 0], [0, 0, 0]], 'expected': 0},
+        {'obstacle_grid': [[0, 0, 0], [0, 0, 0], [0, 0, 1]], 'expected': 0}
+    ]
     for test in tests:
         print(test, unique_paths_with_obstacles(test['obstacle_grid']))
-
