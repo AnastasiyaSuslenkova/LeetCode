@@ -39,7 +39,7 @@ def three_sum_closest(nums: list[int], target: int) -> int:
             val = n_i + nums_sorted[j] + nums_sorted[k]
             if val == target:
                 return val
-            elif val > target:
+            if val > target:
                 k -= 1
             else:
                 j += 1
