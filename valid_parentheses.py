@@ -1,5 +1,5 @@
-# Given a string s containing just the characters '(', ')', '{', '}', '[' and ']',
-# determine if the input string is valid.
+# Given a string s containing just the characters
+# '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
 # An input string is valid if:
 # 1. Open brackets must be closed by the same type of brackets.
 # 2. Open brackets must be closed in the correct order.
@@ -24,8 +24,8 @@
 def is_valid(s: str) -> bool:
     dict_of_brackets = {'{': '}', '(': ')', '[': ']'}
     l_opened = []
-    for i, el in enumerate(s):
-        if el in dict_of_brackets.keys():
+    for el in s:
+        if el in dict_of_brackets:
             l_opened.append(dict_of_brackets[el])
         elif len(l_opened) == 0:
             return False
@@ -40,5 +40,5 @@ def is_valid(s: str) -> bool:
 
 if __name__ == '__main__':
     tests = {'()': True, '()[]{}': True, '(]': False, '[()]': True}
-    for input, expected in tests.items():
-        print(input, is_valid(input), expected)
+    for inp, expected in tests.items():
+        print(inp, is_valid(inp), expected)
